@@ -98,12 +98,14 @@ RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=NULL,verbose=F
     hc_labs_clean  = lab[-outliers_ids]
     
     if(verbose){
+      library(dendextend)
+
       nodePar <- list(lab.cex = 0.6, pch = c(NA, 19), cex = 0.7, col = "blue")
       dend <- as.dendrogram(hc)
       plot(dend, xlab = "", sub="", ylab = "Distance",
          main = "Dendrogram", nodePar = nodePar)
-    
-      rect.dendrogram(dend , k = length(unique(lab)), border = "red")
+      
+      rect.dendrogram(dend , k = length(unique(lab)), border = 8, lty = 5, lwd = 2)
     }
   }
 
