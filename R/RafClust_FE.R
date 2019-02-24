@@ -46,9 +46,14 @@ RafClustFE <- function(texpr, gene_filter=TRUE, frq = 0.06, verbose = FALSE){
   
   # Calculate the number of cores
   library(parallel)
+  library(doParallel)
+  library(doRNG)
+  
   n_cores <- min(detectCores() - 1, 3)
   
   cl <- makeCluster(n_cores, type="FORK")
+
+
   registerDoParallel(cl)
     
   # calculate distances in parallel

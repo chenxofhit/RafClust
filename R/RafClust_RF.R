@@ -6,6 +6,10 @@
 #' @importFrom randomForest randomForest
 #' @importFrom fpc pamk
 RafClustRF <- function(F, oob=TRUE){
+  
+  library(fpc)
+  library(randomForest)
+
   featFu <- function(i){
     if(dim(F)[1] >= 2000){
       cl   = pamk(F[,i],usepam = FALSE)
