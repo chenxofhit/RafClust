@@ -25,5 +25,5 @@ install.packages("devtools")
 
 ```R
 res <- RafClust(texpr,verbose = TRUE) #cluster number is determined by the program
-res <- RafClust(texpr,NumC = 10)
+res <- RafClust(texpr,NumC = 10,verbose = TRUE)
 ```

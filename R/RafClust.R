@@ -6,6 +6,7 @@
 #' @param NumC number of clusters to be extracted over data
 #' @param gene_filter logical should gene filtering be performed?
 #' @param minClusterSize minimize cluster size 
+#' @param deepSplit deep split 
 #' @param verbose should the help information be output?
 #' @return list of 3 elements describing the results:
 #'		SF:  Spearman Feature Space,
@@ -21,7 +22,7 @@
 #' @import dendextend
 #' @export 
 #'
-RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=NULL,verbose=FALSE)
+RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=30,deepSplit=1,verbose=FALSE)
 {
   if(verbose){
     message("Calculating feature space of the cells...")
@@ -84,10 +85,6 @@ RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=NULL,verbose=F
     }
     d <-  as.dist(dis)
     hc <- fastcluster::hclust(d,method = "average")
-    if(is.null(minClusterSize)){
-      minClusterSize <- 5
-    }
-    deepSplit <- 3
     lab <- cutreeDynamic(dendro = hc, cutHeight = NULL,
                            minClusterSize = minClusterSize,
                            method = "hybrid", deepSplit = deepSplit,
