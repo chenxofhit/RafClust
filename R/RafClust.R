@@ -67,7 +67,7 @@ RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=NULL,verbose=F
 
     if(verbose){
       library(dendextend)
-      
+
       nodePar <- list(lab.cex = 0.6, pch = c(NA, 19), cex = 0.7, col = "blue")
       dend <- as.dendrogram(hc)
       plot(dend, xlab = "", sub="", ylab = "Distance",
@@ -76,7 +76,7 @@ RafClust<-function(data,NumC=NULL,gene_filter=TRUE,minClusterSize=NULL,verbose=F
       rect.dendrogram(dend , k = length(unique(lab)), border = "red")
     }
   }else{
-    library(cutreeDynamic)
+    library(dynamicTreeCut)
     library(fastcluster)
 
     if(verbose){
