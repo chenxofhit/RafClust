@@ -1,0 +1,18 @@
+Package: RafClust
+Type: Package
+Title: A novel random forest  similarity learning based clustering method for single cell RNA sequencing data
+Version: 0.0.1
+Date: 2018-11-10
+Author: Xiang Chen [au]; Min Li [cre]
+Maintainer: Xiang Chen <chenxofhit@gmail.com>
+Description: Implements a two-step approach, random forest based similarity learning followed by hierarchical clustering, to infer cell-cell similarities from single cell RNA-sequencing data.
+License: GPL-2
+LazyData: true
+Imports: randomForest (>= 4.6.12), matrixStats (>= 0.52.2), fpc (>=
+        2.1-10), dclone (>= 2.1-2), pracma (>= 2.0.7), ClusterR (>=
+        1.0.8), e1071 (>= 1.6-8), RColorBrewer, Rtsne,foreach,doParallel,doRNG,fastcluster,dynamicTreeCut,dendextend
+RoxygenNote: 6.0.1
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2018-11-10 17:00:24 UTC; xiang
